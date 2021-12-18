@@ -152,7 +152,7 @@ async def play(c: Client, m: Message):
                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                 await m.reply_photo(
                     photo=f"{IMG_2}",
-                    caption=f""⛧ **streaming musik dimulai.**\n\n🏷 **Nama:** [{songname}]({link})\n🎧 **Request by:** {requester}",
+                    caption=f"⛧ **streaming musik dimulai.**\n\n🏷 **Nama:** [{songname}]({link})\n🎧 **Request by:** {requester}",
                     reply_markup=keyboard,
                 )
              except Exception as e:
