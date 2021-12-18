@@ -23,9 +23,15 @@ from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
-            ]
+                InlineKeyboardButton(text="Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton(text="Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
+            ],
+            [InlineKeyboardButton(text="Anonymous Chat", url=f"https://t.me/{ANNBT_USRNM}")],
+            [InlineKeyboardButton(text="Bot Cari Jodoh", url=f"https://t.me/{CRJDH_USRNM}")],
+            [
+                InlineKeyboardButton(text="Menu", callback_data="cbmenu"),
+                InlineKeyboardButton(text="Tutup", callback_data="cls"),
+            ],
         ]
     )
 
@@ -111,11 +117,11 @@ async def stream_end_handler(_, u: Update):
         print(chat_id)
         op = await skip_current_song(chat_id)
         if op==1:
-           await bot.send_message(chat_id, "✅ **userbot has disconnected from video chat.**")
+           await bot.send_message(chat_id, "✅ **userbot telah terputus dari obrolan video.**")
         elif op==2:
-           await bot.send_message(chat_id, "❌ **an error occurred**\n\n» **Clearing** __Queues__ **and leaving video chat.**")
+           await bot.send_message(chat_id, "❌ **terjadi kesalahan**\n\n» **Menghapus** __Antrian__ **dan keluar dari obrolan video.**")
         else:
-         await bot.send_message(chat_id, f"💡 **Streaming next track**\n\n🏷 **Name:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", disable_web_page_preview=True, reply_markup=keyboard)
+         await bot.send_message(chat_id, f"💡 **Streaming lagu berikutnya**\n\n🏷 **Nama:** [{op[0]}]({op[1]}) | `{op[2]}`\n💭 **Chat:** `{chat_id}`", disable_web_page_preview=True, reply_markup=keyboard)
     else:
        pass
 
