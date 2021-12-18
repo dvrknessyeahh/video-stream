@@ -16,38 +16,30 @@ from config import (
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""✨ **Welcome [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) allows you to play music and video on groups through the new Telegram's video chats!**
-
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
-
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**""",
+        f"""👋 **Hallo [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
+⛧ **Saya adalah [{BOT_NAME}](https://t.me/{BOT_USERNAME}) Saya bisa membantu Anda memutar musik dan video di grup melalui obrolan video Telegram baru!**
+""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
+                        "➕ Tambahkan saya ke Grup Anda ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
                 [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("❤ Donate", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("📚 CMD", callback_data="cbcmds"),
+                    InlineKeyboardButton("👨‍💻 Owner", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
-                [
-                    InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/video-stream"
-                    )
-                ],
+                [InlineKeyboardButton("❓ Panduan Dasar", callback_data="cbhowtouse")],
             ]
         ),
         disable_web_page_preview=True,
@@ -57,22 +49,22 @@ async def cbstart(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ **Basic Guide for using this bot:**
+        f"""❓ **Panduan Dasar untuk menggunakan bot ini:**
 
-1.) **First, add me to your group.**
-2.) **Then, promote me as administrator and give all permissions except Anonymous Admin.**
-3.) **After promoting me, type /reload in group to refresh the admin data.**
-3.) **Add @{ASSISTANT_NAME} to your group or type /userbotjoin to invite her.**
-4.) **Turn on the video chat first before start to play video/music.**
-5.) **Sometimes, reloading the bot by using /reload command can help you to fix some problem.**
+1.) **Pertama, tambahkan saya ke grup Anda.**
+2.) **Kemudian, promosikan saya sebagai administrator dan berikan semua izin kecuali Admin Anonim.**
+3.) **Setelah mempromosikan saya, ketik /reload di grup untuk me-refresh data admin.**
+3.) **Tambahkan @{ASSISTANT_NAME} ke grup Anda atau ketik /userbotjoin untuk mengundangnya.**
+4.) **Aktifkan obrolan video terlebih dahulu sebelum mulai memutar video/musik.**
+5.) **Terkadang, memuat ulang bot dengan menggunakan perintah /reload dapat membantu Anda memperbaiki beberapa masalah.**
 
-📌 **If the userbot not joined to video chat, make sure if the video chat already turned on, or type /userbotleave then type /userbotjoin again.**
+⛧ **Jika userbot tidak join ke video chat, pastikan video chat sudah aktif, atau ketik /userbotleave lalu ketik /userbotjoin lagi.**
 
-💡 **If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}**
+⛧ **Jika Anda memiliki pertanyaan lanjutan tentang bot ini, Anda dapat menceritakannya pada obrolan dukungan saya di sini: @{GROUP_SUPPORT}**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⛧ __Powered by {BOT_NAME} __""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")]]
+            [[InlineKeyboardButton("🔙 Kembali", callback_data="cbstart")]]
         ),
     )
 
@@ -80,20 +72,20 @@ async def cbguides(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbcmds"))
 async def cbcmds(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""✨ **Hello [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
+        f"""👋 **Hallo [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
 
-» **press the button below to read the explanation and see the list of available commands !**
+⛧ **tekan tombol di bawah untuk membaca penjelasan dan melihat daftar perintah yang tersedia !**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⛧ __Powered by {BOT_NAME} __""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👷🏻 Admin Cmd", callback_data="cbadmin"),
-                    InlineKeyboardButton("🧙🏻 Sudo Cmd", callback_data="cbsudo"),
+                    InlineKeyboardButton("👷 Admin Cmd", callback_data="cbadmin"),
+                    InlineKeyboardButton("🧙 Sudo Cmd", callback_data="cbsudo"),
                 ],[
                     InlineKeyboardButton("📚 Basic Cmd", callback_data="cbbasic")
                 ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")
+                    InlineKeyboardButton("🔙 Kembali", callback_data="cbstart")
                 ],
             ]
         ),
@@ -103,24 +95,24 @@ async def cbcmds(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the basic commands:
+        f"""🏮 di sini adalah perintah dasar:
 
-» /mplay (song name/link) - play music on video chat
-» /vplay (video name/link) - play video on video chat
-» /vstream - play live video from yt live/m3u8
-» /playlist - show you the playlist
-» /video (query) - download video from youtube
-» /song (query) - download song from youtube
-» /lyric (query) - scrap the song lyric
-» /search (query) - search a youtube video link
+⛧ /mplay (nama lagu/tautan) - putar musik di obrolan video
+⛧ /vplay (nama video/tautan) - putar video di obrolan video
+⛧ /vstream - putar video langsung dari yt live/m3u8
+⛧ /playlist - menampilkan daftar putar
+⛧ /video (permintaan) - unduh video dari youtube
+⛧ /song (query) - unduh lagu dari youtube
+⛧ /lyric (query) - memo lirik lagu
+⛧ /search (query) - cari link video youtube
 
-» /ping - show the bot ping status
-» /uptime - show the bot uptime status
-» /alive - show the bot alive info (in group)
+⛧ /ping - tampilkan status bot ping
+⛧ /uptime - tampilkan status uptime bot
+⛧ /alive - tampilkan info bot hidup (dalam grup)
 
-⚡️ __Powered by {BOT_NAME} AI__""",
+⛧ __Powered by {BOT_NAME} __""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Kembali", callback_data="cbcmds")]]
         ),
     )
 
@@ -128,40 +120,40 @@ async def cbbasic(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbadmin"))
 async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the admin commands:
+        f"""🏮 ini perintah adminnya:
 
-» /pause - pause the stream
-» /resume - resume the stream
-» /skip - switch to next stream
-» /stop - stop the streaming
-» /vmute - mute the userbot on voice chat
-» /vunmute - unmute the userbot on voice chat
-» /volume `1-200` - adjust the volume of music (userbot must be admin)
-» /reload - reload bot and refresh the admin data
-» /userbotjoin - invite the userbot to join group
-» /userbotleave - order userbot to leave from group
+⛧ /pause - jeda streaming
+⛧ /resume - lanjutkan streaming
+⛧ /skip - beralih ke berikutnya
+⛧ /stop - stop streaming
+⛧ /vmute - bisukan userbot di obrolan suara
+⛧ /vunmute - membunyikan userbot di obrolan suara
+⛧ /volume `1-200` - sesuaikan volume musik (userbot harus admin)
+⛧ /reload - muat ulang bot dan segarkan data admin
+⛧ /userbotjoin - undang userbot untuk bergabung dengan grup
+⛧ /userbotleave - perintahkan userbot keluar dari grup
 
-⚡️ __Powered by {BOT_NAME} AI__""",
+⛧ __Powered by {BOT_NAME} __""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Kembali", callback_data="cbcmds")]]
         ),
     )
 
 @Client.on_callback_query(filters.regex("cbsudo"))
 async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""🏮 here is the sudo commands:
+        f"""🏮 di sini adalah perintah sudo:
 
-» /rmw - clean all raw files
-» /rmd - clean all downloaded files
-» /sysinfo - show the system information
-» /update - update your bot to latest version
-» /restart - restart your bot
-» /leaveall - order userbot to leave from all group
+⛧ /rmw - bersihkan semua file mentah
+⛧ /rmd - bersihkan semua file yang diunduh
+⛧ /sysinfo - tampilkan informasi sistem
+⛧ /update  - perbarui bot Anda ke versi terbaru
+⛧ /restart - mulai ulang bot Anda
+⛧ /leaveall - perintahkan userbot keluar dari semua grup
 
-⚡ __Powered by {BOT_NAME} AI__""",
+⛧ __Powered by {BOT_NAME} __""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 Kembali", callback_data="cbcmds")]]
         ),
     )
 
@@ -169,14 +161,14 @@ async def cbsudo(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbmenu"))
 async def cbmenu(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("Anda adalah Admin Anonim !\n\n» kembali ke akun pengguna dari hak admin.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("⛧ hanya admin dengan izin mengelola obrolan suara yang dapat mengetuk tombol ini !", show_alert=True)
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
           await query.edit_message_text(
-              f"⚙️ **settings of** {query.message.chat.title}\n\n⏸ : pause stream\n▶️ : resume stream\n🔇 : mute userbot\n🔊 : unmute userbot\n⏹ : stop stream",
+              f"⚙️ **pengaturan dari** {query.message.chat.title}\n\n⏸ : pause stream\n▶️ : resume stream\n🔇 : mute userbot\n🔊 : unmute userbot\n⏹ : stop stream",
               reply_markup=InlineKeyboardMarkup(
                   [[
                       InlineKeyboardButton("⏹", callback_data="cbstop"),
@@ -191,12 +183,12 @@ async def cbmenu(_, query: CallbackQuery):
              ),
          )
     else:
-        await query.answer("❌ nothing is currently streaming", show_alert=True)
+        await query.answer("❌ tidak ada yang sedang streaming", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("⛧ hanya admin dengan izin mengelola obrolan suara yang dapat mengetuk tombol ini !", show_alert=True)
     await query.message.delete()
