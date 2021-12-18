@@ -54,6 +54,16 @@
             "required": true,
             "value": "levinachannel"
         },
+        "ANNBT_USRNM": {
+            "description": "isi",
+            "required": true,
+            "value": "isi"
+        },
+        "CRJDH_USRNM": {
+            "description": "isi",
+            "required": true,
+            "value": "isi"
+        },
         "OWNER_NAME": {
             "description": "fill with your telegram account username without @",
             "required": true,
