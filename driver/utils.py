@@ -23,15 +23,9 @@ from pytgcalls.types.stream import StreamAudioEnded, StreamVideoEnded
 keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="Group", url=f"https://t.me/{GROUP_SUPPORT}"),
-                InlineKeyboardButton(text="Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
-            ],
-            [InlineKeyboardButton(text="Anonymous Chat", url=f"https://t.me/{ANNBT_USRNM}")],
-            [InlineKeyboardButton(text="Bot Cari Jodoh", url=f"https://t.me/{CRJDH_USRNM}")],
-            [
-                InlineKeyboardButton(text="Menu", callback_data="cbmenu"),
-                InlineKeyboardButton(text="Tutup", callback_data="cls"),
-            ],
+                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+            ]
         ]
     )
 
