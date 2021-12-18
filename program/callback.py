@@ -97,7 +97,7 @@ async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 di sini adalah perintah dasar:
 
-⛧ /mplay (nama lagu/tautan) - putar musik di obrolan video
+⛧ /play (nama lagu/tautan) - putar musik di obrolan video
 ⛧ /vplay (nama video/tautan) - putar video di obrolan video
 ⛧ /vstream - putar video langsung dari yt live/m3u8
 ⛧ /playlist - menampilkan daftar putar
