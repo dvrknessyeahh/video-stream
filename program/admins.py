@@ -5,7 +5,7 @@ from driver.decorators import authorized_users_only
 from driver.filters import command, other_filters
 from driver.queues import QUEUE, clear_queue
 from driver.utils import skip_current_song, skip_item
-from config import BOT_USERNAME, GROUP_SUPPORT, IMG_3, UPDATES_CHANNEL
+from config import BOT_USERNAME, GROUP_SUPPORT, IMG_3, UPDATES_CHANNEL, ANNBT_USRNM, CRJDH_USRNM
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
@@ -45,13 +45,15 @@ async def skip(client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(
-                    text="• Mᴇɴᴜ", callback_data="cbmenu"
-                ),
-                InlineKeyboardButton(
-                    text="• Cʟᴏsᴇ", callback_data="cls"
-                ),
-            ]
+                InlineKeyboardButton(text="Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton(text="Channel", url=f"https://t.me/{UPDATES_CHANNEL}"),
+            ],
+            [InlineKeyboardButton(text="Anonymous Chat", url=f"https://t.me/{ANNBT_USRNM}")],
+            [InlineKeyboardButton(text="Bot Cari Jodoh", url=f"https://t.me/{CRJDH_USRNM}")],
+            [
+                InlineKeyboardButton(text="Menu", callback_data="cbmenu"),
+                InlineKeyboardButton(text="Close", callback_data="cls"),
+            ],
         ]
     )
 
